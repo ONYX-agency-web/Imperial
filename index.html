@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#25030e">
+<meta name="color-scheme" content="light">
+<meta name="description" content="Imperial. Частный автомобильный клуб в Москве. Подбираем, проверяем и продаём премиальные автомобили. Приём по записи.">
+<title>Imperial. Премиальные автомобили в Москве</title>
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Imperial. Премиальные автомобили в Москве">
+<meta property="og:description" content="Подбираем, проверяем и продаём премиальные автомобили. Приём по записи.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 1.5l12.5 4.3v9.7c0 7-5 12.2-12.5 15-7.500-2.800-12.500-8-12.500-15V5.800z' fill='%2325030e' stroke='%23b49a72' stroke-width='2' stroke-linejoin='round'/%3E%3Cpath d='M10.500 9h11v2.400h-3.800v9.200h3.800V23h-11v-2.400h3.800v-9.200h-3.800z' fill='%23b49a72'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root{
+  --wine:#390517;--wine2:#25030e;--gold:#b49a72;--goldlight:#d7c4a4;
+  --paper:#e0e0e0;--ivory:#f5f1e9;--ink:#241c1b;--muted:#5c504b;
+  --sand:#e9e4dc;--line:#c6bcb1;--line-dark:#79525c;--night:#1b1113;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'DM Sans','Segoe UI',system-ui,-apple-system,'Helvetica Neue',Arial,sans-serif;
+  --pad:clamp(24px,6vw,96px);
+  --section:clamp(64px,10vw,128px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--ivory);color:var(--ink);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+picture{display:block}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit}
+figure{margin:0}
+ul{list-style:none;margin:0;padding:0}
+h1,h2,h3,p{margin:0}
+::selection{background:var(--wine);color:var(--ivory)}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.skip{position:absolute;left:16px;top:-64px;z-index:30;padding:12px 24px;background:var(--gold);color:#271b18;font-weight:500;transition:top .2s}
+.skip:focus{top:16px}
+
+.wrap{max-width:1280px;margin:0 auto;padding-inline:var(--pad)}
+
+/* Заголовки и вводный текст */
+h2{font:400 clamp(32px,4.6vw,56px)/1.12 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.intro{margin-top:24px;max-width:42ch;font-size:17px;line-height:1.75;color:var(--muted);text-wrap:pretty}
+
+/* Кнопки */
+.btn{display:inline-block;padding:16px 32px;background:var(--gold);color:#271b18;font-weight:500;letter-spacing:.02em;transition:background-color .25s}
+
+/* Шапка */
+.header{position:sticky;top:0;z-index:20;background:var(--wine2);color:#fff}
+.header-in{display:flex;align-items:center;justify-content:space-between;gap:32px;height:80px}
+.logo{font:500 24px/1 var(--serif);letter-spacing:.2em;color:#fff}
+.logo small{display:block;margin-top:8px;font:400 10px/1 var(--sans);letter-spacing:.3em;text-align:center;color:var(--goldlight)}
+.nav{display:flex;gap:32px;font-size:15px}
+.nav a{color:#eee2df;transition:color .2s}
+
+.header-cta{padding:12px 24px;border:1px solid #80616a;font-size:15px;transition:border-color .2s,color .2s}
+
+.menu-btn{display:none;width:48px;height:48px;margin-right:-12px;padding:0;background:none;border:0;cursor:pointer;position:relative}
+.menu-btn span{position:absolute;left:12px;right:12px;height:1px;background:#fff;transition:transform .25s,top .25s}
+.menu-btn span:first-child{top:19px}
+.menu-btn span:last-child{top:28px}
+.menu-btn[aria-expanded="true"] span:first-child{top:24px;transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:last-child{top:24px;transform:rotate(-45deg)}
+.mobile-nav{display:none}
+
+/* Первый экран */
+.hero{position:relative;display:grid;align-items:end;min-height:clamp(560px,84vh,800px);background:var(--wine2);color:#fff;overflow:hidden}
+.hero-media{position:absolute;inset:0}
+.hero-media picture{height:100%}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:60% center;filter:brightness(.67);animation:settle 2s cubic-bezier(.2,.6,.2,1) both}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(23,4,10,.76),rgba(23,4,10,.12) 90%),linear-gradient(0deg,rgba(23,4,10,.55),transparent 45%)}
+.hero-body{position:relative;z-index:1;width:100%;padding-block:96px 72px;animation:rise 1s .25s ease-out both}
+.hero h1{font:400 clamp(36px,6.4vw,84px)/1.06 var(--serif);letter-spacing:-.015em;text-wrap:balance}
+.hero p{margin:24px 0 40px;max-width:40ch;font-size:17px;line-height:1.75;color:#eee3df;text-wrap:pretty}
+@keyframes settle{from{transform:scale(1.06)}to{transform:scale(1)}}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* Услуги */
+.services-sec{padding-block:var(--section)}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(48px,8vw,128px)}
+.split-head{align-self:start;position:sticky;top:128px}
+.services{border-top:1px solid var(--line)}
+.service{display:grid;grid-template-columns:1fr auto;align-items:baseline;gap:8px 32px;padding:32px 0;border-bottom:1px solid var(--line)}
+.service h3{font:400 24px/1.3 var(--serif);color:var(--wine)}
+.service p{grid-column:1;max-width:44ch;font-size:15px;line-height:1.7;color:var(--muted)}
+.price{grid-column:2;grid-row:1;white-space:nowrap;font-weight:500;color:var(--ink)}
+
+/* Коллекция */
+.collection{padding-block:var(--section);background:var(--sand)}
+.collection-head{margin-bottom:48px}
+.feature img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;background:#cfc7bb}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:40px}
+.pair img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:#cfc7bb}
+figcaption.car{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding-top:16px}
+figcaption.car strong{font:400 22px/1.3 var(--serif);color:var(--wine)}
+figcaption.car span{font-size:14px;color:var(--muted);text-align:right}
+
+/* Почему к нам возвращаются */
+.values{padding-block:var(--section) 0;background:var(--wine);color:#fff}
+.values h2{color:#fff}
+.values .intro{color:#eadedb}
+.value-list{border-top:1px solid var(--line-dark)}
+.value{padding:32px 0;border-bottom:1px solid var(--line-dark)}
+.value h3{font:400 22px/1.3 var(--serif);color:var(--goldlight)}
+.value p{margin-top:8px;max-width:46ch;font-size:15px;line-height:1.7;color:#eadedb}
+
+.manifesto{padding-block:clamp(48px,7vw,96px) var(--section);background:var(--wine);color:#fff}
+.manifesto img{width:100%;height:auto;aspect-ratio:21/9;object-fit:cover;filter:brightness(.8);background:var(--wine2)}
+.manifesto figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding-top:16px;border-top:1px solid var(--line-dark)}
+.manifesto figcaption span{font-size:14px;color:#eadedb}
+.manifesto figcaption q{quotes:"«" "»";font:italic 400 20px/1.4 var(--serif);color:var(--goldlight);text-align:right}
+
+/* Запись */
+.booking{padding-block:var(--section);background:var(--paper)}
+.booking .split{align-items:start}
+.form{display:grid;gap:32px;max-width:480px}
+.field label{display:block;margin-bottom:4px;font-size:15px;color:#514744}
+.field input{width:100%;padding:16px 0;border:0;border-bottom:1px solid #91857f;border-radius:0;background:transparent;color:var(--ink);font-size:18px;outline:none;transition:border-color .2s}
+.field input::placeholder{color:#665c57}
+.field input:focus{border-bottom-color:var(--wine)}
+.field input:focus-visible{outline:none;box-shadow:0 1px 0 var(--wine)}
+.field.invalid input{border-bottom-color:var(--wine);box-shadow:0 1px 0 var(--wine)}
+.error{display:none;margin-top:8px;font-size:14px;line-height:1.5;color:var(--wine)}
+.field.invalid .error{display:block}
+.submit{justify-self:start;padding:18px 40px;border:0;background:var(--wine);color:var(--ivory);font-weight:500;letter-spacing:.02em;cursor:pointer;transition:background-color .25s}
+
+.legal{font-size:13px;line-height:1.6;color:#514744}
+.done{display:none;max-width:480px;padding-top:32px;border-top:1px solid #91857f}
+.done.show{display:block}
+.done h3{font:400 clamp(28px,3.4vw,36px)/1.2 var(--serif);color:var(--wine)}
+.done p{margin-top:16px;font-size:17px;line-height:1.7;color:var(--muted)}
+.done:focus{outline:none}
+
+/* Подвал */
+.footer{padding-block:64px 32px;background:var(--night);color:#fff}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px 32px}
+.footer h3{margin-bottom:16px;font:400 18px/1.3 var(--serif);color:var(--goldlight)}
+.footer p,.footer li,.footer address{font-size:15px;line-height:1.9;color:#e8ddda;font-style:normal}
+.footer a{transition:color .2s}
+
+.footer-brand p{max-width:28ch;margin-top:24px}
+.footer-bottom{margin-top:48px;padding-top:24px;border-top:1px solid #604b50;font-size:13px;color:#d7c4c2}
+
+@media (hover:hover){
+  .btn:hover{background:#e2d2b8}
+  .nav a:hover,.footer a:hover{color:var(--goldlight)}
+  .header-cta:hover{border-color:var(--goldlight);color:var(--goldlight)}
+  .submit:hover{background:var(--wine2)}
+}
+
+/* Планшет */
+@media (max-width:899px){
+  .nav,.header-cta{display:none}
+  .menu-btn{display:block}
+  .mobile-nav.open{display:block;position:absolute;top:100%;left:0;right:0;padding:8px var(--pad) 24px;background:var(--wine2);border-block:1px solid #62404a}
+  .mobile-nav a{display:block;padding:16px 0;border-bottom:1px solid #4a2a33;font-size:18px;color:#eee2df}
+  .mobile-nav a:last-child{border-bottom:0;color:var(--goldlight)}
+  .split{grid-template-columns:1fr;gap:40px}
+  .split-head{position:static}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/-1}
+}
+
+/* Телефон */
+@media (max-width:599px){
+  .header-in{height:72px}
+  .logo{font-size:22px}
+  .hero{min-height:600px}
+  .hero-media img{object-position:68% center}
+  .hero-media::after{background:linear-gradient(0deg,rgba(23,4,10,.88),rgba(23,4,10,.2) 70%)}
+  .hero-body{padding-block:64px 48px}
+  .hero p{margin:16px 0 32px}
+  .btn{display:block;text-align:center}
+  .collection-head{margin-bottom:32px}
+  .feature img{aspect-ratio:4/3}
+  .pair{grid-template-columns:1fr;gap:32px;margin-top:32px}
+  .service{grid-template-columns:1fr;padding:24px 0}
+  .price{grid-column:1;grid-row:auto;margin-top:8px}
+  figcaption.car{flex-direction:column;gap:0}
+  figcaption.car span{text-align:left}
+  .manifesto img{aspect-ratio:4/3}
+  .manifesto figcaption{flex-direction:column;gap:8px}
+  .manifesto figcaption q{text-align:left;font-size:18px}
+  .submit{justify-self:stretch;text-align:center}
+  .footer-grid{grid-template-columns:1fr}
+}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .hero-media img,.hero-body{animation:none}
+  *{transition:none!important}
+}
+</style>
+    <style>
+
+    /* ONYX Agency portfolio badge */
+    .onyx-agency-badge {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      width: 112px;
+      min-height: 58px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 8px 12px 9px;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1;
+      box-shadow: 0 5px 22px rgba(0, 0, 0, .2);
+      -webkit-font-smoothing: antialiased;
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .onyx-agency-badge__wordmark {
+      display: block;
+      font-size: 22px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -1.25px;
+    }
+    .onyx-agency-badge__registered {
+      display: inline-block;
+      margin-left: 1px;
+      font-size: 7px;
+      line-height: 1;
+      font-weight: 600;
+      vertical-align: top;
+      transform: translateY(-1px);
+    }
+    .onyx-agency-badge__caption {
+      display: block;
+      padding-left: 2px;
+      font-size: 8px;
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 2.8px;
+      text-transform: uppercase;
+    }
+    @media (hover: hover) {
+      .onyx-agency-badge:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 26px rgba(0, 0, 0, .26);
+      }
+    }
+    @media (max-width: 899px) {
+      .onyx-agency-badge {
+        right: 14px;
+        bottom: calc(14px + env(safe-area-inset-bottom));
+        width: 104px;
+        min-height: 54px;
+      }
+      .onyx-agency-badge__wordmark { font-size: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .onyx-agency-badge { transition: none; }
+    }
+    </style>
+</head>
+<body>
+  <a class="onyx-agency-badge" href="#" aria-label="ONYX Agency" onclick="return false">
+    <span class="onyx-agency-badge__wordmark">ONYX<span class="onyx-agency-badge__registered">®</span></span>
+    <span class="onyx-agency-badge__caption">Agency</span>
+  </a>
+
+<a class="skip" href="#main">Перейти к&nbsp;содержимому</a>
+
+<header class="header">
+  <div class="wrap header-in">
+    <a href="#home" class="logo" aria-label="Imperial, на главную">IMPERIAL<small>PRIVATE MOTOR CLUB</small></a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#collection">Коллекция</a>
+      <a href="#values">О&nbsp;нас</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a class="header-cta" href="#booking">Записаться</a>
+    <button class="menu-btn" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Мобильная навигация">
+    <a href="#services">Услуги</a>
+    <a href="#collection">Коллекция</a>
+    <a href="#values">О&nbsp;нас</a>
+    <a href="#contact">Контакты</a>
+    <a href="#booking">Записаться</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero" id="home">
+    <div class="hero-media">
+      <picture>
+          <source type="image/webp" srcset="images/aston-martin-db12-800.webp 800w,
+            images/aston-martin-db12-1280.webp 1280w,
+            images/aston-martin-db12-1920.webp 1920w" sizes="100vw">
+          <img src="images/aston-martin-db12-1920.jpg" srcset="images/aston-martin-db12-800.jpg 800w,
+            images/aston-martin-db12-1280.jpg 1280w,
+            images/aston-martin-db12-1920.jpg 1920w" sizes="100vw" width="1920" height="1281" fetchpriority="high" decoding="async" alt="Серый Aston Martin DB12, вид спереди">
+        </picture>
+    </div>
+    <div class="wrap hero-body">
+      <h1>Автомобили<br>без&nbsp;лишних&nbsp;слов</h1>
+      <p>Подбираем премиальные автомобили в&nbsp;Москве. Проверяем каждый по&nbsp;120 пунктам. Ведём сделку до&nbsp;передачи ключей. Принимаем только по&nbsp;записи.</p>
+      <a href="#booking" class="btn">Записаться</a>
+    </div>
+  </section>
+
+  <section class="services-sec" id="services">
+    <div class="wrap split">
+      <div class="split-head">
+        <h2>Что мы&nbsp;делаем</h2>
+        <p class="intro">Мы&nbsp;подбираем и&nbsp;продаём автомобили. Каждый проверяем до&nbsp;сделки. Вы&nbsp;общаетесь с&nbsp;одним менеджером.</p>
+      </div>
+      <ul class="services">
+        <li class="service">
+          <h3>Индивидуальный подбор</h3>
+          <p>Узнаём бюджет и&nbsp;задачи. Находим от 3 до 5 вариантов. Проверяем историю и&nbsp;состояние. На&nbsp;осмотр едем вместе с&nbsp;вами.</p>
+          <span class="price">от&nbsp;25&nbsp;000&nbsp;₽</span>
+        </li>
+        <li class="service">
+          <h3>Приватная продажа</h3>
+          <p>Готовим машину к&nbsp;показу. Покупателя ищем среди своих клиентов. Объявления не&nbsp;размещаем. Средний срок сделки: 14 дней.</p>
+          <span class="price">от&nbsp;30&nbsp;000&nbsp;₽</span>
+        </li>
+        <li class="service">
+          <h3>Обмен по&nbsp;trade-in</h3>
+          <p>Оцениваем ваш автомобиль на&nbsp;месте за&nbsp;1 час. Сумму называем сразу. Вычитаем её из&nbsp;цены следующей машины.</p>
+          <span class="price">По&nbsp;запросу</span>
+        </li>
+        <li class="service">
+          <h3>Детейлинг</h3>
+          <p>Мойка, полировка кузова, химчистка салона. Керамическое покрытие на&nbsp;2 года.</p>
+          <span class="price">от&nbsp;15&nbsp;000&nbsp;₽</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="collection" id="collection">
+    <div class="wrap">
+      <div class="collection-head">
+        <h2>Автомобили в&nbsp;наличии</h2>
+      </div>
+      <figure class="feature">
+        <picture>
+          <source type="image/webp" srcset="images/rolls-royce-phantom-800.webp 800w,
+            images/rolls-royce-phantom-1280.webp 1280w,
+            images/rolls-royce-phantom-1920.webp 1920w" sizes="(min-width:1280px) 1112px, 100vw">
+          <img src="images/rolls-royce-phantom-1920.jpg" srcset="images/rolls-royce-phantom-800.jpg 800w,
+            images/rolls-royce-phantom-1280.jpg 1280w,
+            images/rolls-royce-phantom-1920.jpg 1920w" sizes="(min-width:1280px) 1112px, 100vw" width="1920" height="1283" loading="lazy" decoding="async" alt="Rolls-Royce Phantom VIII матового серого цвета на выставочном стенде">
+        </picture>
+        <figcaption class="car"><strong>Rolls-Royce Phantom</strong><span>Седан, V12, 6,75&nbsp;л</span></figcaption>
+      </figure>
+      <div class="pair">
+        <figure>
+          <picture>
+          <source type="image/webp" srcset="images/mercedes-amg-s63-600.webp 600w,
+            images/mercedes-amg-s63-900.webp 900w,
+            images/mercedes-amg-s63-1280.webp 1280w" sizes="(min-width:1280px) 540px, (min-width:600px) 50vw, 100vw">
+          <img src="images/mercedes-amg-s63-1280.jpg" srcset="images/mercedes-amg-s63-600.jpg 600w,
+            images/mercedes-amg-s63-900.jpg 900w,
+            images/mercedes-amg-s63-1280.jpg 1280w" sizes="(min-width:1280px) 540px, (min-width:600px) 50vw, 100vw" width="1280" height="750" loading="lazy" decoding="async" alt="Чёрный Mercedes-AMG S 63, вид спереди">
+        </picture>
+          <figcaption class="car"><strong>Mercedes-AMG S&nbsp;63</strong><span>Седан, V8, 4,0&nbsp;л</span></figcaption>
+        </figure>
+        <figure>
+          <picture>
+          <source type="image/webp" srcset="images/ferrari-roma-600.webp 600w,
+            images/ferrari-roma-900.webp 900w,
+            images/ferrari-roma-1280.webp 1280w" sizes="(min-width:1280px) 540px, (min-width:600px) 50vw, 100vw">
+          <img src="images/ferrari-roma-1280.jpg" srcset="images/ferrari-roma-600.jpg 600w,
+            images/ferrari-roma-900.jpg 900w,
+            images/ferrari-roma-1280.jpg 1280w" sizes="(min-width:1280px) 540px, (min-width:600px) 50vw, 100vw" width="1280" height="789" loading="lazy" decoding="async" alt="Серебристый Ferrari Roma, вид сзади">
+        </picture>
+          <figcaption class="car"><strong>Ferrari Roma</strong><span>Купе, V8, 3,9&nbsp;л, 620&nbsp;л.с.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="values" id="values">
+    <div class="wrap split">
+      <div class="split-head">
+        <h2>Почему к&nbsp;нам возвращаются</h2>
+        <p class="intro">Четыре правила, которых мы&nbsp;придерживаемся в&nbsp;каждой сделке.</p>
+      </div>
+      <div class="value-list">
+        <div class="value">
+          <h3>Конфиденциальность</h3>
+          <p>Данные клиента и&nbsp;условия сделки не&nbsp;передаём третьим лицам. Соглашение о&nbsp;неразглашении подпишем по&nbsp;запросу.</p>
+        </div>
+        <div class="value">
+          <h3>Проверенная история</h3>
+          <p>Независимый эксперт проверяет автомобиль по&nbsp;120 пунктам. Отчёт получаете вы.</p>
+        </div>
+        <div class="value">
+          <h3>Один менеджер</h3>
+          <p>Один человек ведёт вас от&nbsp;первого звонка до&nbsp;ключей. Он на&nbsp;связи с&nbsp;10:00 до&nbsp;20:00.</p>
+        </div>
+        <div class="value">
+          <h3>Без спешки</h3>
+          <p>Решение за&nbsp;вами. Мы&nbsp;не&nbsp;торопим. Машины, в&nbsp;которых сомневаемся сами, не&nbsp;предлагаем.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="manifesto">
+    <div class="wrap">
+      <figure>
+        <picture>
+          <source type="image/webp" srcset="images/porsche-911-gts-800.webp 800w,
+            images/porsche-911-gts-1280.webp 1280w,
+            images/porsche-911-gts-1920.webp 1920w" sizes="(min-width:1280px) 1112px, 100vw">
+          <img src="images/porsche-911-gts-1920.jpg" srcset="images/porsche-911-gts-800.jpg 800w,
+            images/porsche-911-gts-1280.jpg 1280w,
+            images/porsche-911-gts-1920.jpg 1920w" sizes="(min-width:1280px) 1112px, 100vw" width="1920" height="997" loading="lazy" decoding="async" alt="Светло-серый Porsche 911 Carrera GTS на парковке">
+        </picture>
+        <figcaption><span>Porsche 911 Carrera GTS</span><q>Хороший автомобиль не&nbsp;нужно объяснять.</q></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="booking" id="booking">
+    <div class="wrap split">
+      <div class="split-head">
+        <h2>Запись на&nbsp;встречу</h2>
+        <p class="intro">Оставьте имя и&nbsp;телефон. Перезвоним в&nbsp;течение 2 часов в&nbsp;рабочее время. Встреча займёт около 40 минут.</p>
+      </div>
+      <div>
+        <form class="form" id="booking-form" novalidate>
+          <div class="field">
+            <label for="name">Имя</label>
+            <input id="name" name="name" type="text" autocomplete="name" autocapitalize="words" maxlength="60" enterkeyhint="next" placeholder="Как к вам обращаться" aria-describedby="name-error" required>
+            <p class="error" id="name-error" aria-live="polite"></p>
+          </div>
+          <div class="field">
+            <label for="phone">Телефон</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" spellcheck="false" enterkeyhint="send" placeholder="+7 (___) ___-__-__" aria-describedby="phone-error" required>
+            <p class="error" id="phone-error" aria-live="polite"></p>
+          </div>
+          <button class="submit" type="submit">Записаться</button>
+          <p class="legal">Нажимая кнопку, вы&nbsp;соглашаетесь на&nbsp;обработку персональных данных.</p>
+        </form>
+        <div class="done" id="done" tabindex="-1" role="status">
+          <h3></h3>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" id="contact">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="logo" aria-label="Imperial, на главную">IMPERIAL<small>PRIVATE MOTOR CLUB</small></a>
+        <p>Подбор, продажа и&nbsp;детейлинг премиальных автомобилей в&nbsp;Москве.</p>
+      </div>
+      <div>
+        <h3>Разделы</h3>
+        <ul>
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#collection">Коллекция</a></li>
+          <li><a href="#values">О&nbsp;нас</a></li>
+          <li><a href="#booking">Запись на&nbsp;встречу</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Контакты</h3>
+        <address>
+          Москва, Кутузовский проспект<br>
+          <a href="tel:+70000000000">+7(000)000-00-00</a><br>
+          <a href="mailto:test-mail@example.com">test-mail@example.com</a>
+        </address>
+      </div>
+      <div>
+        <h3>Часы работы</h3>
+        <p>С&nbsp;понедельника по&nbsp;субботу<br>с&nbsp;10:00 до&nbsp;20:00<br>Воскресенье по&nbsp;договорённости</p>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Imperial. Приём по&nbsp;предварительной записи.</div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  'use strict';
+
+  /* Мобильное меню */
+  var menuBtn = document.querySelector('.menu-btn');
+  var mobileNav = document.getElementById('mobile-nav');
+
+  function setMenu(open) {
+    mobileNav.classList.toggle('open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  }
+
+  menuBtn.addEventListener('click', function () {
+    setMenu(menuBtn.getAttribute('aria-expanded') !== 'true');
+  });
+  mobileNav.addEventListener('click', function (e) {
+    if (e.target.tagName === 'A') setMenu(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.header')) setMenu(false);
+  });
+  window.matchMedia('(min-width: 900px)').addEventListener('change', function (e) {
+    if (e.matches) setMenu(false);
+  });
+
+  /* Форма записи */
+  var form = document.getElementById('booking-form');
+  var done = document.getElementById('done');
+  var nameInput = document.getElementById('name');
+  var phoneInput = document.getElementById('phone');
+  var prevDigits = '';
+
+  function phoneDigits(value) {
+    var raw = String(value);
+    var d = raw.replace(/\D/g, '');
+    if (/^\s*\+\s*7/.test(raw)) d = d.slice(1);               // префикс маски «+7»
+    else if (d.length === 11 && (d.charAt(0) === '7' || d.charAt(0) === '8')) d = d.slice(1); // вставка 7… / 8…
+    else if (d.length === 1 && (d.charAt(0) === '7' || d.charAt(0) === '8')) d = '';           // первая цифра как код страны
+    return d.slice(0, 10);
+  }
+
+  function formatPhone(d) {
+    if (!d) return '';
+    var out = '+7 (' + d.slice(0, 3);
+    if (d.length >= 3) out += ')';
+    if (d.length > 3) out += ' ' + d.slice(3, 6);
+    if (d.length > 6) out += '-' + d.slice(6, 8);
+    if (d.length > 8) out += '-' + d.slice(8, 10);
+    return out;
+  }
+
+  phoneInput.addEventListener('input', function (e) {
+    var isDelete = e.inputType && e.inputType.indexOf('delete') === 0;
+    var raw = phoneInput.value;
+    var digits = phoneDigits(raw);
+    // Удаление служебного символа маски стирает последнюю цифру
+    if (isDelete && digits === prevDigits) digits = digits.slice(0, -1);
+    prevDigits = digits;
+    if (!digits) phoneInput.value = (!isDelete && /\d/.test(raw)) ? '+7 (' : '';
+    else phoneInput.value = formatPhone(digits);
+  });
+
+  phoneInput.addEventListener('focus', function () { if (!phoneInput.value) phoneInput.value = '+7 ('; });
+  phoneInput.addEventListener('blur', function () { if (phoneInput.value === '+7 (') phoneInput.value = ''; });
+
+  function setError(input, message) {
+    var field = input.closest('.field');
+    var box = document.getElementById(input.id + '-error');
+    field.classList.toggle('invalid', Boolean(message));
+    box.textContent = message || '';
+    if (message) input.setAttribute('aria-invalid', 'true');
+    else input.removeAttribute('aria-invalid');
+  }
+
+  function validName() {
+    var ok = nameInput.value.trim().length >= 2;
+    setError(nameInput, ok ? '' : 'Укажите, как к вам обращаться.');
+    return ok;
+  }
+
+  function validPhone() {
+    var ok = phoneDigits(phoneInput.value).length === 10;
+    setError(phoneInput, ok ? '' : 'Введите номер полностью, например +7 (900) 123-45-67.');
+    return ok;
+  }
+
+  nameInput.addEventListener('input', function () { if (nameInput.getAttribute('aria-invalid')) validName(); });
+  phoneInput.addEventListener('input', function () { if (phoneInput.getAttribute('aria-invalid')) validPhone(); });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nameOk = validName();
+    var phoneOk = validPhone();
+    if (!nameOk) { nameInput.focus(); return; }
+    if (!phoneOk) { phoneInput.focus(); return; }
+
+    // Здесь подключается отправка заявки на сервер или в CRM.
+    done.querySelector('h3').textContent = 'Спасибо, ' + nameInput.value.trim() + '.';
+    done.querySelector('p').textContent = 'Заявка у нас. Перезвоним по номеру ' + phoneInput.value + ' в течение 2 часов. Работаем с 10:00 до 20:00.';
+    form.style.display = 'none';
+    done.classList.add('show');
+    done.focus();
+  });
+})();
+</script>
+</body>
+</html>
